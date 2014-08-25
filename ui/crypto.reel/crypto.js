@@ -16,12 +16,14 @@ exports.Crypto = Component.specialize( /** @lends Crypto# */ {
 			this.super();
 		}
 	},
-
+	secretkey: {
+		value: "abcdefg"
+	},
 	handleInputAction: {
 		value: function(event) {
-			var encrypted = "...";
-			this.templateObjects.encrypted.value = encrypted;
-			var decrypted = "...."
+			var encrypted = AES.encrypt(event.target.value, this.secretkey);
+			this.templateObjects.encrypted.value = btoa(encrypted.toString());
+			var decrypted = AES.decrypt(encrypted, this.secretkey).toString(CryptoEncoding);
 			this.templateObjects.decrypted.value = decrypted;
 		}
 	}
