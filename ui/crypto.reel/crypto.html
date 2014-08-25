@@ -9,12 +9,46 @@
             "properties": {
                 "element": {"#": "owner"}
             }
+        },
+        "input": {
+            "prototype": "digit/ui/text-field.reel",
+            "properties": {
+                "element": {"#": "input"},
+                "value": "type something here"
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        },
+        "encrypted": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "encrypted"}
+            }
+        },
+        "decrypted": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "decrypted"}
+            }
         }
     }
     </script>
 </head>
 <body>
     <div data-montage-id="owner" class="Crypto">
+        <p>
+            Change this text and push enter: <span data-montage-id="input"></span>
+        </p>
+        <p>
+            Encrypted: <span data-montage-id="encrypted"></span>
+        </p>
+        <p>
+            Decrypted: <span data-montage-id="decrypted"></span>
+        </p>
     </div>
 </body>
 </html>
